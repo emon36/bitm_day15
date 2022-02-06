@@ -7,7 +7,10 @@ namespace App\classes;
 class Product
 {
 
-    protected $product;
+    protected $product_id;
+    protected $products;
+    protected $result=[];
+
 
     /**
      * @return mixed
@@ -18,7 +21,7 @@ class Product
             0 => [
                 'id' => '1',
                 'title' => 'FORMAL SHIRTS FOR MEN',
-                'Description' => '',
+                'Description' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
                 'price' => '200$',
                 'category' => 'Men Fashion',
                 'Brand' => 'Gucci',
@@ -28,7 +31,7 @@ class Product
             1 => [
                 'id' => '2',
                 'title' => 'Long Sleeve Formal Shirt for',
-                'Description' => 'Product1 Description',
+                'Description' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
                 'price' => '200$',
                 'category' => 'Men fashion',
                 'Brand' => 'Gucci',
@@ -37,7 +40,7 @@ class Product
             2 => [
                 'id' => '3',
                 'title' => 'Product 3',
-                'Description' => 'Product1 Description',
+                'Description' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
                 'price' => '200$',
                 'category' => 'Shirt',
                 'Brand' => 'Gucci',
@@ -46,7 +49,7 @@ class Product
             3 => [
                 'id' => '4',
                 'title' => 'Product 4',
-                'Description' => 'Product1 Description',
+                'Description' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
                 'price' => '200$',
                 'category' => 'Shirt',
                 'Brand' => 'Gucci',
@@ -55,7 +58,7 @@ class Product
             4 => [
                 'id' => '5',
                 'title' => 'Product 5',
-                'Description' => 'Product1 Description',
+                'Description' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
                 'price' => '200$',
                 'category' => 'Shirt',
                 'Brand' => 'Gucci',
@@ -67,7 +70,19 @@ class Product
 
     public function getSingleProduct($id=null){
 
-        
+        $this->product_id = $id;
+
+        $this->products = $this->getAllProduct();
+
+        foreach ($this->products as $product)
+        {
+            if($this->product_id == $product['id']){
+                return $this->result = $product;
+                break;
+            }
+
+        }
+        return $this->result;
     }
 
 

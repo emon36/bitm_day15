@@ -33,9 +33,9 @@ if(isset($_GET['pages']))
     }
     elseif ($_GET['pages'] == 'detail')
     {
-        $product = new Product();
+        $producs = new Product();
         $id = $_GET['id'];
-        $product->getSingleProduct($id);
+       $product = $producs->getSingleProduct($id);
         include 'pages/product_view.php';
     }
 
