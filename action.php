@@ -35,7 +35,7 @@ if(isset($_GET['pages']))
     {
         $product = new Product();
         $id = $_GET['id'];
-        $product->getSingleProduct()''
+        $product->getSingleProduct($id);
         include 'pages/product_view.php';
     }
 

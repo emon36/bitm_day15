@@ -65,8 +65,9 @@ class Product
         ];
     }
 
-    public function getSingleProduct(){
+    public function getSingleProduct($id=null){
 
+        
     }
 
 
